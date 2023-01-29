@@ -34,13 +34,18 @@ podman pull docker.io/dpage/pgadmin4:latest
 echo -e "\nList of local podman images:"
 podman images
 
+echo -e "\nPlease enter administrator password for new PostgreSQL server:"
+read -s userProvidedPSQLPswd
+
 # Create container
 echo -e "\nCreating PostgreSQl container.."
 podman create --name postgres \
 	-p 5432:5432 \
-	-e POSTGRES_PASSWORD=vRU-qY4-ck6-GaL \
+	-e POSTGRES_PASSWORD=$userProvidedPSQLPswd \
 	-v "$DIR_PG_D01":/var/lib/postgresql/data:Z \
 	postgres:latest
+
+unset userProvidedPSQLPswd
 
 ## Run container
 echo -e "\nStarting PostgreSQl container.."
