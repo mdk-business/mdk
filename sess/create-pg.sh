@@ -41,7 +41,7 @@ podman pull docker.io/dpage/pgadmin4:latest
 echo -e "\nList of local podman images:"
 podman images
 
-read -p "\pEnter password for new PostgreSQL server: " -s userProvidedPSQLPswd
+read -p "\nEnter password for new PostgreSQL server: " -s userProvidedPSQLPswd
 
 # Create container
 echo -e "\nCreating PostgreSQl container.."
