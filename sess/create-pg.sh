@@ -23,7 +23,6 @@ touch "$DIR_PG_VOL/-directory-of-postgres-volumes"
 echo -e "\nCreating directory for postgres data.."
 mkdir -p "$DIR_PG_D01"
 echo -e "For data volume is used dir '$DIR_PG_D01'"
-touch "$DIR_PG_D01/-directory-of-postgres-data"
 
 ## Pull images
 echo -e "\nPulling latest official PostgreSQl image.."
