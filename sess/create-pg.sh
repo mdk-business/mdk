@@ -8,9 +8,10 @@ readonly DIR_PG_D01="$DIR_PG_VOL/$(date +%s%3N)"
 # Go to home folder
 cd "$HOME"
 
-echo -e "\n==================================="
+echo ""
+echo -e "==================================="
 echo -e "\tPostgreSQL CCS"
-echo -e "\===================================\n"
+echo -e "===================================\n"
 
 pgContainerExists=$(podman container exists postgres ; echo $?)
 
@@ -73,5 +74,5 @@ unset userProvidedPSQLPswd
 echo -e "\nStarting PostgreSQl container.."
 podman start postgres
 
-echo -e "Status of postgres:"
+echo -e "\nStatus of postgres:"
 podman ps -f name=postgres
