@@ -10,7 +10,7 @@ cd "$HOME"
 
 podman container exists postgres
 if [ $? == 0 ]; then
-	echo -e "Container `postgres` exists already!"
+	echo "Container postgres exists already!"
 	exit
 fi
 
