@@ -8,6 +8,11 @@ readonly DIR_PG_D01="$DIR_PG_VOL/$(date +%s%3N)"
 # Go to home folder
 cd "$HOME"
 
+if [ ! $(podman container exists postgres) ]; then
+	echo -e "Container `postgres` exists already!"
+	exit
+fi
+
 # Create data directory
 echo -e "Installing PostgreSQL server as podman container.."
 echo -e "You are running this script as $USER"
