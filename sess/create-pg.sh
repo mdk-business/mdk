@@ -37,11 +37,11 @@ echo -e "You are running this script as $USER"
 
 echo -e "\nCreating directory for podman volumes.."
 mkdir -p "$DIR_PM_VOL"
-touch "$DIR_PM_VOL/-podman-volumes-here"
+touch "$DIR_PM_VOL/-podman-volumes"
 
 echo -e "\nCreating directory for postgres volumes.."
 mkdir -p "$DIR_PG_VOL"
-touch "$DIR_PG_VOL/-postgres-volumes-here"
+touch "$DIR_PG_VOL/-postgres-volumes"
 
 echo -e "\nCreating directory for postgres data.."
 mkdir -p "$DIR_PG_D01"
