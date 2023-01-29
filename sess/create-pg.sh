@@ -15,7 +15,7 @@ echo -e "\===================================\n"
 pgContainerExists=$(podman container exists postgres ; echo $?)
 
 if [ $pgContainerExists == 0 ]; then
-	echo "Container postgres exists already!\n"
+	echo -e "Container postgres exists already!\n"
 	podman ps -f name=postgres
 	echo -e "\nInstallation aborted!"
 	exit
