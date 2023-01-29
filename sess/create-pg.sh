@@ -8,10 +8,16 @@ readonly DIR_PG_D01="$DIR_PG_VOL/$(date +%s%3N)"
 # Go to home folder
 cd "$HOME"
 
+echo "\n==================================="
+echo "  PostgreSQL CCS"
+echo "\===================================\n"
+
 pgContainerExists=$(podman container exists postgres ; echo $?)
 
 if [ $pgContainerExists == 0 ]; then
 	echo "Container postgres exists already!"
+	podman ps -f name=postgres
+	echo "\nInstallation aborted!"
 	exit
 fi
 
@@ -41,7 +47,8 @@ podman pull docker.io/dpage/pgadmin4:latest
 echo -e "\nList of local podman images:"
 podman images
 
-read -p "\nEnter password for new PostgreSQL server: " -s userProvidedPSQLPswd
+echo ""
+read -p "Enter password for new PostgreSQL server: " -s userProvidedPSQLPswd
 
 # Create container
 echo -e "\nCreating PostgreSQl container.."
@@ -56,3 +63,6 @@ unset userProvidedPSQLPswd
 ## Run container
 echo -e "\nStarting PostgreSQl container.."
 podman start postgres
+
+echo -e "Status of postgres:"
+podman ps -f name=postgres
