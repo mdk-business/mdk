@@ -8,16 +8,16 @@ readonly DIR_PG_D01="$DIR_PG_VOL/$(date +%s%3N)"
 # Go to home folder
 cd "$HOME"
 
-echo "\n==================================="
-echo "  PostgreSQL CCS"
-echo "\===================================\n"
+echo -e "\n==================================="
+echo -e "\tPostgreSQL CCS"
+echo -e "\===================================\n"
 
 pgContainerExists=$(podman container exists postgres ; echo $?)
 
 if [ $pgContainerExists == 0 ]; then
-	echo "Container postgres exists already!"
+	echo "Container postgres exists already!\n"
 	podman ps -f name=postgres
-	echo "\nInstallation aborted!"
+	echo -e "\nInstallation aborted!"
 	exit
 fi
 
