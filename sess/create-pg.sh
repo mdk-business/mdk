@@ -8,7 +8,8 @@ readonly DIR_PG_D01="$DIR_PG_VOL/$(date +%s%3N)"
 # Go to home folder
 cd "$HOME"
 
-if [ ! $(podman container exists postgres) ]; then
+podman container exists postgres
+if [ $? == 0 ]; then
 	echo -e "Container `postgres` exists already!"
 	exit
 fi
