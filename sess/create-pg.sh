@@ -3,7 +3,10 @@
 # Defaults
 readonly DIR_PM_VOL="$HOME/.pv"
 readonly DIR_PG_VOL="$DIR_PM_VOL/pg"
-readonly DIR_PG_D01="$DIR_PM_VOL/pg"
+readonly DIR_PG_D01="$DIR_PG_VOL/D1"
+
+# Go to home folder
+cd "$HOME"
 
 echo -e "Installing PostgreSQL server as podmain container.."
 echo -e "You are running this script as $USER"
@@ -21,11 +24,13 @@ mkdir -p "$DIR_PG_D01"
 echo -e "For data volume is used dir '$DIR_PG_D01'"
 touch "$DIR_PG_D01/-directory-of-postgres-data"
 
-echo -e "\nPulling latest official PostgreSQl image"
+echo -e "\nPulling latest official PostgreSQl image.."
 podman pull docker.io/library/postgres:latest
 
-echo -e "\nPulling latest official PgAdmin image"
+echo -e "\nPulling latest official PgAdmin image.."
 podman pull docker.io/dpage/pgadmin4:latest
 
-echo -e "\nList of podman images:"
+echo -e "\nList of local podman images:"
 podman images
+
+
