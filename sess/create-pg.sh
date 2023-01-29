@@ -21,6 +21,15 @@ if [ $pgContainerExists == 0 ]; then
 	exit
 fi
 
+pgAdminExists=$(podman container exists pgadmin ; echo $?)
+
+if [ $pgAdminExists == 0 ]; then
+	echo "Container pgadmin exists already!\n"
+	podman ps -f name=pgadmin
+	echo -e "\nInstallation aborted!"
+	exit
+fi
+
 # Create data directory
 echo -e "Installing PostgreSQL server as podman container.."
 echo -e "You are running this script as $USER"
